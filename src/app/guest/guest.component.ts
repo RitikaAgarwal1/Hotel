@@ -35,11 +35,7 @@ export class GuestComponent implements OnInit {
       )
     ).subscribe(bookings => {
       this.dataSource.data = bookings;
-      console.log(bookings);
-      bookings.forEach((el) => {
-        console.log(el.bookingDays);
-        this.days = el.bookingDays.length;
-      });
+      //console.log(bookings);
     });
   }
 
