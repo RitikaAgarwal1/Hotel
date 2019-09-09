@@ -13,7 +13,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatNativeDateModule,
-  MatSelectModule
+  MatSelectModule, MatSortModule, MatTableModule
 } from '@angular/material';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -61,7 +61,9 @@ declare var $: any;
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent],
