@@ -1,0 +1,56 @@
+.logo{
+  grid-area:logo;
+  font-size: 1em;
+  text-align: center;
+  color:#fff;
+}
+
+.logo h1{
+  margin:0;
+  padding-right: 5px;
+  position: relative;
+  top: 50%;
+  transform: translateY(80%);
+}
+
+.navbar{
+  grid-area:menu;
+  display:flex;
+}
+
+.navbar div{
+  border: 1px solid #ff8a65;
+  text-align: center;
+  height: fit-content;
+  color: #fff;
+  flex: 1;
+  padding: 4.7% 0;
+  cursor: pointer;
+}
+
+.active{
+  background:#ff8a65;
+}
+
+.navbar div:hover{
+  background: #2a2a2a;
+  color: #ff8e27;
+}
+
+.navbar mat-icon{
+  font-size: 2.5em;
+  width: unset;
+}
+
+.contact{
+  background: #ff8a65;
+  color: #fff;
+  text-align: center;
+  margin: auto;
+  padding: 15px 30px;
+  cursor:pointer;
+  position: relative;
+  top: 50%;
+  transform: translateY(80%);
+  grid-area:contact;
+}

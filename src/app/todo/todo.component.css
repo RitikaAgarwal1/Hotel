@@ -1,0 +1,145 @@
+.container{
+  width:100%;
+  margin: auto;
+}
+
+form{
+  max-width: 40em;
+  margin: 1em auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.text-center {
+  text-align:center;
+}
+
+.input-group-prepend {
+  margin-right: -1px;
+  display: flex;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.input-group-text {
+  display: flex;
+  padding: 1.4rem 1.45rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #f68964;
+  border: 1px solid #ced4da;
+  border-radius: 10.25rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  position: relative;
+  right: 12px;
+  margin-top: -2.1%;
+}
+
+mat-card{
+  width: 55%;
+  margin: auto;
+  background: #ffffffd4;
+  color: rgb(246, 137, 100);
+}
+
+.add {
+  height: unset;
+  width: unset;
+  font-size: 2rem;
+}
+
+.data{
+  max-height: 32vh;
+  overflow: auto;
+}
+
+.data ul li{
+  list-style: none;
+  border-left: 5px solid #f68863;
+  background: #fff;
+  padding: 15px 0 15px 5px;
+  color: #656464;
+  margin-bottom: 10px;
+  position: relative;
+  cursor: grabbing;
+}
+
+.data ul{
+  padding-left:0;
+  width:97%;
+}
+
+.data ul li .material-icons{
+  position: absolute;
+  right: 15px;
+  margin-top: -2px;
+  cursor: pointer;
+}
+
+.btn-complete{
+  position: absolute;
+  right: 7%;
+  border: 1px solid #c7c7c7;
+  background: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #717070;
+}
+
+.btn-complete:hover{
+  box-shadow: 1px 1px 2px 1px #eee;
+}
+
+.completed-task{
+  text-decoration: line-through;
+  color: #65646473 !important;
+}
+
+.not-completed-task{
+  text-decoration: none;
+  color: #656464;
+}
+
+.not-complete-btn{
+  background: #0080007a;
+  color: #fff;
+}
+
+/*style scrollbar*/
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f68964;
+  border-radius: 10px;
+}

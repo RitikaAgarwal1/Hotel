@@ -1,0 +1,10 @@
+<div class="grid-container">
+  <div class="logo" (click)="gotohomepage()" style="cursor: pointer;"><h1 class="title">Ritz Hotel</h1></div>
+  <div class="navbar">
+    <div *ngFor="let menu of menuItems" class="title" (click)="clickHandlerAction(menu)" [ngClass]="{'active': selectedItem == menu}">
+      <mat-icon>{{menu.iconName}}</mat-icon>
+      <br>{{menu.displayName}}
+    </div>
+  </div>
+  <div class="contact">Contact Us</div>
+</div>

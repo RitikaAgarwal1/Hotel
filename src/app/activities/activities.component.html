@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+
+<div class="col-12">
+  <div class="overlay" *ngIf="content">
+    <p>{{content}}</p>
+  </div>
+  <img [src]= [img] width="100%">
+</div>
+<div class="col-12 tab-container">
+  <div *ngFor="let activity of activities">
+    <div class="tabs" (click)="onClickHandler(activity)" [ngClass]="{'active': selectedItem == activity}">
+      <div class="title">
+        {{activity}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

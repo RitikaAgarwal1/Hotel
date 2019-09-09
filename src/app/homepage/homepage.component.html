@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+
+<!--todo list-->
+
+<app-todo></app-todo>
+
+<!--partial carousel-->
+
+  <ul id="partial-view">
+    <li *ngFor="let image of images">
+      <img [src]= [image.source] alt= {{image.alt}}>
+    </li>
+  </ul>
+
+<app-footer></app-footer>

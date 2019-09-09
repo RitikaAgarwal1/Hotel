@@ -1,0 +1,61 @@
+<mat-card>
+<form class="room-booking">
+
+  <mat-form-field class="col-12">
+    <input matInput type="text" placeholder="Name" name="guestName" [(ngModel)]="data.guestName">
+  </mat-form-field>
+
+  <mat-form-field class="col-12">
+    <input matInput type="email" placeholder="Email" name="email" [(ngModel)]="data.email">
+  </mat-form-field>
+
+  <mat-form-field class="col-12">
+    <mat-select  placeholder="Select room number"  [(ngModel)]="data.roomNumber" name="roomNumber">
+      <mat-option value="" disabled="true">Room Number</mat-option>
+      <mat-option *ngFor="let number of roomNumber" [value]="number" class="dropdown-value-text">
+        {{ number }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="col-12">
+    <input matInput type="text" placeholder="Room Type" name="room" [(ngModel)]="data.room" [value]="data.room" [disabled]="true">
+  </mat-form-field>
+
+  <mat-form-field class="col-12">
+    <input matInput type="text" placeholder="No. of Pax" name="pax" [(ngModel)]="data.pax" [value]="data.pax">
+  </mat-form-field>
+
+  <div class="col-12">
+    <small [hidden]="paxMsg" class="errorMessage">
+      No. of guests cannot be more than 4
+    </small>
+  </div>
+
+  <mat-form-field class="date-dropdown">
+    <input matInput [min]="fromMinDate" [max]="fromMaxDate" [matDatepicker]="frompicker" placeholder="Check In" name="from" [(ngModel)]="from">
+    <mat-datepicker-toggle matSuffix [for]="frompicker"></mat-datepicker-toggle>
+    <mat-datepicker #frompicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="date-dropdown">
+    <input matInput [min]="toMinDate" [max]="toMaxDate" [matDatepicker]="topicker" placeholder="Check Out" name="to" [(ngModel)]="to">
+    <mat-datepicker-toggle matSuffix [for]="topicker"></mat-datepicker-toggle>
+    <mat-datepicker #topicker></mat-datepicker>
+  </mat-form-field>
+
+  <small [hidden]="dateMsg" class="errorMessage">
+    This room is not available from {{startDate}} to {{endDate}}
+  </small>
+
+  <div class="modal-btn">
+    <button class="btn-form" (click)="onNoClick()">Cancel</button>
+    <button class="btn-form" type="submit" (click)="savedata()" [disabled]="!data.guestName || !data.email || !data.roomNumber || !from || !to">Save</button>
+
+    <small [hidden]="data.guestName && data.email && data.roomNumber && from && to" class="errorMessage">
+      *All fields are required
+    </small>
+  </div>
+
+</form>
+  </mat-card>

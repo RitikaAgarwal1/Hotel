@@ -1,0 +1,124 @@
+.bgcolor{
+  background-color: red;
+  background-image: linear-gradient(to bottom left, #ff8e27, #ed305b);
+  width: 100%;
+  height: 100vh;
+}
+
+.login-container{
+  background: #dc2036;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 60vh;
+  width: 80%;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  border-radius: 4px;
+  box-shadow: 0px 0px 6px 2px #00000047;
+  background-image:url("../../assets/147997361.jpg");
+  background-size:cover;
+}
+
+.login-card{
+  background: #fff;
+  width: 30%;
+  height: 80vh;
+  position: absolute;
+  top: -18%;
+  border-radius: 4px;
+  right: 10%;
+  box-shadow: 0px 0px 6px 2px #00000047;
+  padding: 10px;
+}
+
+.title span{
+  font-size: 1.5em;
+  top: 2.5%;
+  position: absolute;
+  margin-left: -7%;
+}
+
+.red-border{
+  border: 1px solid red;
+  width: 10%;
+  margin: auto;
+  margin-top: -25px;
+}
+
+button.btn-form{
+  width: 202px;
+  background: #dc2036;
+  border-radius: 25px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: none;
+  color: #fff;
+  height: 8vh;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  margin: 16px 0;
+  margin-right: -19px;
+  margin-left: auto;
+  display: block;
+  box-shadow: -4px 1px 15px 0px #00000085;
+  -webkit-transition: background .7s;
+  transition: background .7s;
+  font-size: 1em;
+}
+
+button.btn-form:after{
+  position: relative;
+  content: "";
+  right: -78px;
+  bottom: 48px;
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #63211a;
+}
+
+.switch-btn:after{
+  right: -52px!important;
+}
+
+button.btn-form:hover{
+  background: #fe852d;
+}
+
+.login-form input, .login-form select {
+  margin: 10px auto;
+}
+
+.colored-layout{
+  background: #ce3e07;
+  top: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: .8;
+}
+
+.content-card{
+  width: 50%;
+  padding: 2em;
+  position: absolute;
+}
+
+.content-card p{
+  font-size:24px;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group-text{
+  position: absolute;
+  right: 5%;
+  top: 26%;
+  color: #7d7d7d;
+}

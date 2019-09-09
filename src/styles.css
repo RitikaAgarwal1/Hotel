@@ -1,0 +1,110 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+.title{
+  font-family: 'Oswald', sans-serif;
+}
+
+.text-center{
+  text-align:center;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.grid-container{
+  display:grid;
+  grid-template-areas:
+    "logo menu contact";
+  grid-template-columns:15% auto 15%;
+  grid-template-rows:10% auto 10%;
+  background: #292929;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+
+p.error {
+  color:red;
+  font-size: 10px;
+}
+
+/*footer*/
+
+app-footer{
+  position: fixed;
+  background: #ff8a65;
+  height:6%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/*loader*/
+
+.loader-overlay {
+  background: #ffffffe6;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.loader {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border-top: 2px solid steelblue;
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  position: relative;
+  animation: spin 3s linear infinite forwards;
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border-top: 2px solid inherit;
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+}
+
+.loader::before {
+  top: 7px;
+  left: 7px;
+  width: 178px;
+  height: 178px;
+  border-top: 2px solid tomato;
+  animation: spin 2s linear infinite forwards;
+}
+
+.loader::after {
+  top: 16px;
+  left: 16px;
+  width: 160px;
+  height: 160px;
+  border-top: 2px solid yellowgreen;
+  animation: spin 1s linear infinite forwards;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

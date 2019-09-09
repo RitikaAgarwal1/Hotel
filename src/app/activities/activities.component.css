@@ -1,0 +1,31 @@
+img{
+  height:80vh;
+}
+
+.tabs{
+  background: #eee;
+  margin: 0 2px;
+  flex: 1;
+  padding: 5px;
+  text-transform: uppercase;
+  height: 15vh;
+  cursor: pointer;
+  width: 150px;
+}
+.tab-container{
+  display:flex;
+}
+
+.overlay{
+  background: #00000080;
+  position: absolute;
+  top: 29%;
+  left: 4%;
+  width: 50%;
+  color: #ff8a65;
+  padding: 10px;
+}
+
+.active{
+  border-top: 5px solid red;
+}

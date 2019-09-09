@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+app-todo{
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 50%;
+  top: 25%;
+  z-index: 1;
+  width:100%;
+}

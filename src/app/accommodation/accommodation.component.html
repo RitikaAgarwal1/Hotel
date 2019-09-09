@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+
+<div id="wrapper_bu">
+  <div id="bu1">
+    <div class="room-detail">
+      <h2 class="title">{{rooms.bu1.title}}</h2>
+      <p>{{rooms.bu1.description}}</p>
+      <button class="book" (click)="booking(rooms.bu1.title)">Click to Book</button>
+    </div>
+    <img [src] = [rooms.bu1.source] alt = {{rooms.bu1.alt}}>
+  </div>
+  <div id="bu2">
+    <div class="room-detail">
+      <h2 class="title">{{rooms.bu2.title}}</h2>
+      <p>{{rooms.bu2.description}}</p>
+      <button class="book" (click)="booking(rooms.bu2.title)">Click to Book</button>
+    </div>
+    <img [src] = [rooms.bu2.source] alt = {{rooms.bu2.alt}}>
+  </div>
+  <div id="bu3">
+    <div class="room-detail">
+      <h2 class="title">{{rooms.bu3.title}}</h2>
+      <p>{{rooms.bu3.description}}</p>
+      <button class="book" (click)="booking(rooms.bu3.title)">Click to Book</button>
+    </div>
+    <img [src] = [rooms.bu3.source] alt = {{rooms.bu3.alt}}>
+  </div>
+  <div id="bu4">
+    <div class="room-detail">
+      <h2 class="title">{{rooms.bu4.title}}</h2>
+      <p>{{rooms.bu4.description}}</p>
+      <button class="book" (click)="booking(rooms.bu4.title)">Click to Book</button>
+    </div>
+    <img [src] = [rooms.bu4.source] alt = {{rooms.bu4.alt}}>
+  </div>
+  <div id="bu5">
+    <div class="room-detail">
+      <h2 class="title">{{rooms.bu5.title}}</h2>
+      <p>{{rooms.bu5.description}}</p>
+      <button class="book" (click)="booking(rooms.bu5.title)">Click to Book</button>
+    </div>
+    <img [src] = [rooms.bu5.source] alt = {{rooms.bu5.alt}}>
+  </div>
+</div>
+
+<div class="rooms-container">
+  <div class="rooms-menu title" *ngFor=" let group of roomGroup" (click)="getRoomList(group)" [ngClass]="{'active': selectedItem == group}">
+    {{group}}
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+<script>Conclave.auto()</script>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>

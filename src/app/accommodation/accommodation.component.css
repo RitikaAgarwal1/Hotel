@@ -1,0 +1,63 @@
+#wrapper_bu img{
+  width: 100%;
+  height: -webkit-fill-available;
+}
+
+.rooms-menu{
+  height: 15vh;
+  flex: 1;
+  background: #292929db;
+  border: 1px solid #f68964;
+  bottom: 6%;
+  text-align: center;
+  line-height: 15vh;
+  color:#fff;
+}
+
+.rooms-menu:hover, .active{
+  background: #f68964;
+}
+
+.rooms-container{
+  display: flex;
+  position: absolute;
+  bottom: 6%;
+  width: 30%;
+  left: 50%;
+  transform: translatex(-50%);
+  cursor: pointer;
+}
+
+.room-detail{
+  position: absolute;
+  background: #000000c4;
+  color: #fff;
+  top: 0;
+  bottom: 0;
+  padding: 20px;
+  display:none;
+  overflow:hidden;
+}
+
+#bu1:hover .room-detail, #bu2:hover .room-detail, #bu3:hover .room-detail, #bu4:hover .room-detail, #bu5:hover .room-detail{
+  display:block;
+}
+
+.book{
+  background: #ff8a65;
+  color: #fff;
+  text-align: center;
+  border:none;
+  padding: 15px 30px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.book:hover{
+  box-shadow: 0px 0px 4px 1px #636363;
+}
+
+.room-detail h2{
+  color: #f68964;
+  margin: 20px 0;
+}

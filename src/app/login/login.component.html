@@ -1,0 +1,48 @@
+<div class="bgcolor">
+  <div class="login-container">
+    <div class="colored-layout"></div>
+
+    <div class="content-card">
+      <h1 class="title">Welcome to Ritz Hotel</h1>
+      <p class="title">This is my Angular application for hotel internal use. You have to sign up and then login to start the application. Its made for accessing the data of guests and rooms. Employees can also check or update the information related to rooms and activities.</p>
+    </div>
+    <div class="login-card">
+      <h1 class="title text-center"><span>S</span>IGN IN</h1>
+      <div class="red-border"></div>
+
+      <!--include angular mat form-->
+      <form #authForm='ngForm' class="login-form" (ngSubmit)="onSubmit(authForm)">
+
+        <mat-form-field *ngIf="!isLoginMode">
+          <input matInput type="text" placeholder="Name" name="displayName" ngModel required displayName>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="email" placeholder="Email" name="email" ngModel required email>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input [type]="show ? 'text' : 'password'" matInput type="password" placeholder="Password" name="password" ngModel required minlength="6">
+          <span class="input-group-text"><mat-icon (click)="showPassword()" style="cursor: pointer">{{icon}}</mat-icon></span>
+        </mat-form-field>
+
+        <p class="error" *ngIf="errormsg">{{error}}</p>
+
+        <button type="submit" class="btn-form action-btn" [disabled]="!authForm.valid">{{ isLoginMode ? 'Sign In' : 'Sign Up'}}</button>
+        <button type="button" class="btn-form switch-btn" (click)="onSwitchMode()">{{ isLoginMode ? 'Click to Sign Up' : 'Click to Sign In'}}</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div *ngIf="isLoading">
+    <div class="loader-overlay">
+      <div class="loader-container">
+        <div class="loader-wrapper">
+          <div class="loader"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
