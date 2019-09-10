@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {BookingService} from '../service/booking/booking.service';
 import {map} from 'rxjs/operators';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-guest',
@@ -18,7 +19,8 @@ export class GuestComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private bookingService: BookingService) { }
+  constructor(private bookingService: BookingService,
+              private router: Router) { }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
@@ -41,6 +43,10 @@ export class GuestComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  roomBooking() {
+    this.router.navigate(['accommodation']);
   }
 
 }

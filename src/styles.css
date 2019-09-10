@@ -102,6 +102,13 @@ app-footer{
   animation: spin 1s linear infinite forwards;
 }
 
+/*sweet alert*/
+/*https://www.npmjs.com/package/sweetalert2*/
+
+.swal2-actions button {
+  background-color: #ff8a65 !important;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

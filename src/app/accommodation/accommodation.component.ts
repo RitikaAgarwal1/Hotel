@@ -3,6 +3,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import {RoomBookingFormComponent} from './room-booking-form/room-booking-form.component';
 import {RoomBooking} from '../interfaces/room-booking';
 import {BookingService} from '../service/booking/booking.service';
+import Swal from 'sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
 
 declare var $: any;
 
@@ -166,6 +168,14 @@ export class AccommodationComponent implements OnInit {
         pax: string = result.pax;
       }();
       this.bookingService.addBooking(this.roomBooking);
+
+      //sweet alert for successful submit
+
+      Swal.fire(
+        'Submitted!',
+        'Your data has been successfully submitted.',
+        'success'
+      );
     });
   }
 

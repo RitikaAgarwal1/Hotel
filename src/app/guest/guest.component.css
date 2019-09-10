@@ -7,3 +7,23 @@ table{
 .main-content{
   margin-top: 14%;
 }
+
+.col-12{
+  width: 95%;
+  margin: auto;
+}
+
+.book{
+  float: right;
+  margin-top: 1%;
+  background: #ff8a65;
+  color: #fff;
+  padding: 10px 25px;
+  cursor: pointer;
+  box-shadow: 0px 0px 1px 1px #b9b9b9;
+  border: none;
+}
+
+.book:hover{
+  box-shadow: inset 0px 0px 1px 1px #b9b9b9;
+}
