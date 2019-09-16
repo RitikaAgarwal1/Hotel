@@ -102,6 +102,10 @@ app-footer{
   animation: spin 1s linear infinite forwards;
 }
 
+.text-heading{
+  color: #f68964;
+}
+
 /*sweet alert*/
 /*https://www.npmjs.com/package/sweetalert2*/
 

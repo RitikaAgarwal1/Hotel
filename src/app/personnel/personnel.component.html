@@ -1,0 +1,251 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="isLoading">
+  <div class="loader-overlay" style="background: transparent;">
+    <div class="loader-container">
+      <div class="loader-wrapper">
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1 class="text-heading">Personnel Details</h1>
+  <form class="form">
+    <mat-form-field class="addbox">
+      <input matInput placeholder="Employee Name" [(ngModel)]="employee" name="employee">
+    </mat-form-field>
+
+    <mat-form-field class="employeeType">
+      <mat-select placeholder="Employee Type" [(ngModel)]="employeeType" name="employeeType" [(value)]="employeeType">
+        <mat-option *ngFor="let employeeType of employees" [value]="employeeType.value">
+          {{employeeType.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="employeeType">
+      <mat-select placeholder="Gender" [(ngModel)]="gender" name="gender" [(value)]="gender">
+        <mat-option *ngFor="let gender of genders" [value]="gender.value">
+          {{gender.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="addbox">
+      <input matInput placeholder="Phone Number" #validate='ngModel' [(ngModel)]="phone" name="phone" pattern="[0-9]{9,10}" maxlength="10">
+    </mat-form-field>
+
+    <mat-form-field class="addbox">
+      <input matInput placeholder="Address" [(ngModel)]="address" name="address">
+    </mat-form-field>
+
+    <mat-form-field class="addbox">
+      <input matInput placeholder="Age" [(ngModel)]="age" name="age">
+    </mat-form-field>
+
+    <mat-form-field class="addbox">
+      <input matInput placeholder="Email" [(ngModel)]="email" name="email">
+    </mat-form-field>
+
+    <button class="addbtn" (click)="addEmployees()" [disabled]="!(age && address && employee && phone && validate.valid && gender && email)">Add</button>
+  </form>
+
+  <div class="col-12 emp-main-content">
+        <h2 class="title">Manager</h2>
+        <table>
+          <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Gender</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Age</th>
+            <th>Email Id</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let emp of empArray">
+          <tr *ngIf="emp.profile === 'manager'">
+            <td>{{emp.name | titlecase}}</td>
+            <td>{{emp.gender | titlecase}}</td>
+            <td>{{emp.phone}}</td>
+            <td>{{emp.address | titlecase}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.email}}</td>
+            <td><button class="delete">X</button></td>
+          </tr>
+          </tbody>
+        </table>
+  </div>
+
+  <div class="col-12 emp-main-content">
+        <h2 class="title">Front Desk Clerk</h2>
+        <table>
+          <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Gender</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Age</th>
+            <th>Email Id</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let emp of empArray">
+          <tr *ngIf="emp.profile === 'clerk'">
+            <td>{{emp.name | titlecase}}</td>
+            <td>{{emp.gender | titlecase}}</td>
+            <td>{{emp.phone}}</td>
+            <td>{{emp.address | titlecase}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.email}}</td>
+            <td><button class="delete">X</button></td>
+          </tr>
+          </tbody>
+        </table>
+  </div>
+
+  <div class="col-12 emp-main-content">
+        <h2 class="title">Porter</h2>
+        <table>
+          <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Gender</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Age</th>
+            <th>Email Id</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let emp of empArray">
+          <tr *ngIf="emp.profile === 'porter'">
+            <td>{{emp.name | titlecase}}</td>
+            <td>{{emp.gender | titlecase}}</td>
+            <td>{{emp.phone}}</td>
+            <td>{{emp.address | titlecase}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.email}}</td>
+            <td><button class="delete">X</button></td>
+          </tr>
+          </tbody>
+        </table>
+  </div>
+
+  <div class="col-12 emp-main-content">
+        <h2 class="title">Housekeeping</h2>
+        <table>
+          <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Gender</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Age</th>
+            <th>Email Id</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let emp of empArray">
+          <tr *ngIf="emp.profile === 'housekeeping'">
+            <td>{{emp.name | titlecase}}</td>
+            <td>{{emp.gender | titlecase}}</td>
+            <td>{{emp.phone}}</td>
+            <td>{{emp.address | titlecase}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.email}}</td>
+            <td><button class="delete">X</button></td>
+          </tr>
+          </tbody>
+        </table>
+  </div>
+
+  <div class="col-12 emp-main-content">
+        <h2 class="title">Waiter</h2>
+        <table>
+          <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Gender</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Age</th>
+            <th>Email Id</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let emp of empArray">
+          <tr *ngIf="emp.profile === 'waiter'">
+            <td>{{emp.name | titlecase}}</td>
+            <td>{{emp.gender | titlecase}}</td>
+            <td>{{emp.phone}}</td>
+            <td>{{emp.address | titlecase}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.email}}</td>
+            <td><button class="delete">X</button></td>
+          </tr>
+          </tbody>
+        </table>
+  </div>
+
+  <div class="col-12 emp-main-content">
+        <h2 class="title">Kitchen Staff</h2>
+        <table>
+          <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Gender</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Age</th>
+            <th>Email Id</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let emp of empArray">
+          <tr *ngIf="emp.profile === 'kitchen_staff'">
+            <td>{{emp.name | titlecase}}</td>
+            <td>{{emp.gender | titlecase}}</td>
+            <td>{{emp.phone}}</td>
+            <td>{{emp.address | titlecase}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.email}}</td>
+            <td><button class="delete">X</button></td>
+          </tr>
+          </tbody>
+        </table>
+  </div>
+
+  <div class="col-12 emp-main-content" >
+        <h2 class="title">Supervisor</h2>
+        <table>
+          <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Gender</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Age</th>
+            <th>Email Id</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let emp of empArray">
+          <tr *ngIf="emp.profile === 'supervisor'">
+            <td>{{emp.name | titlecase}}</td>
+            <td>{{emp.gender | titlecase}}</td>
+            <td>{{emp.phone}}</td>
+            <td>{{emp.address | titlecase}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.email}}</td>
+            <td><button class="delete">X</button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+</div>
+<app-footer></app-footer>

@@ -29,6 +29,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { GuestComponent } from './guest/guest.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { RoomBookingFormComponent } from './accommodation/room-booking-form/room-booking-form.component';
+import { PersonnelComponent } from './personnel/personnel.component';
 
 declare var $: any;
 
@@ -44,7 +45,8 @@ declare var $: any;
     ActivitiesComponent,
     RestaurantComponent,
     GuestComponent,
-    RoomBookingFormComponent
+    RoomBookingFormComponent,
+    PersonnelComponent
   ],
   imports: [
     BrowserModule,

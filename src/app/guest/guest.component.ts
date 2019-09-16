@@ -15,6 +15,7 @@ export class GuestComponent implements OnInit {
   dataSource = new MatTableDataSource;
 
   days: number;
+  isLoading = true;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -37,6 +38,7 @@ export class GuestComponent implements OnInit {
       )
     ).subscribe(bookings => {
       this.dataSource.data = bookings;
+      this.isLoading = false;
       //console.log(bookings);
     });
   }

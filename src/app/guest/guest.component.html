@@ -1,6 +1,17 @@
 <app-navbar></app-navbar>
 
+<div *ngIf="isLoading">
+  <div class="loader-overlay" style="background: transparent;">
+    <div class="loader-container">
+      <div class="loader-wrapper">
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="main-content">
+  <h1 class="text-heading">Guest List</h1>
   <!--table starts from here-->
 
   <div class="col-12">
