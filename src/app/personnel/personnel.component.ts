@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Employee} from '../interfaces/personnel';
 import {EmployeeService} from '../service/employee/employee.service';
 import {map} from 'rxjs/operators';
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-personnel',
@@ -12,13 +12,13 @@ import Swal from "sweetalert2";
 export class PersonnelComponent implements OnInit {
 
   employees = [
-    {"value": "clerk",  "viewValue": "Front Desk Clerk"},
-    {"value": "porter",  "viewValue": "Porter"},
-    {"value": "housekeeping", "viewValue": "Housekeeping"},
-    {"value": "waiter", "viewValue": "Waiter"},
-    {"value": "kitchen_staff", "viewValue": "Kitchen Staff"},
-    {"value": "supervisor", "viewValue": "Supervisor"},
-    {"value": "manager", "viewValue": "Manager"}
+    {value: 'clerk',  viewValue: 'Front Desk Clerk'},
+    {value: 'porter',  viewValue: 'Porter'},
+    {value: 'housekeeping', viewValue: 'Housekeeping'},
+    {value: 'waiter', viewValue: 'Waiter'},
+    {value: 'kitchen_staff', viewValue: 'Kitchen Staff'},
+    {value: 'supervisor', viewValue: 'Supervisor'},
+    {value: 'manager', viewValue: 'Manager'}
   ];
 
   genders = [
@@ -32,7 +32,7 @@ export class PersonnelComponent implements OnInit {
     }
   ];
 
-  employee: string = '';
+  employee = '';
   phone;
   address;
   gender;
@@ -43,7 +43,7 @@ export class PersonnelComponent implements OnInit {
   empList = [];
   email;
 
-  isLoading: boolean = true;
+  isLoading = true;
 
   constructor(private empService: EmployeeService) { }
 
@@ -51,7 +51,7 @@ export class PersonnelComponent implements OnInit {
     this.getEmployeesData();
   }
 
-  codeValidation() {
+  codeValidation(employeeType) {
     let Ccount = 0;
     let Mcount = 0;
     let Pcount = 0;
@@ -62,67 +62,82 @@ export class PersonnelComponent implements OnInit {
     this.empArray.forEach((emp) => {
       switch (emp.profile) {
         case 'clerk':
-          if (Ccount >= 4) {
-            return false;
-          } else {
-            Ccount = Ccount + 1;
-          }
+          Ccount = Ccount + 1;
           break;
 
         case 'manager':
-          if (Mcount >= 6) {
-            return false;
-          } else {
             Mcount = Mcount + 1;
-          }
-          break;
+            break;
 
         case 'porter':
-          if (Pcount >= 3) {
-            return false;
-          } else {
-            Pcount = Pcount + 1;
-          }
+          Pcount = Pcount + 1;
           break;
 
         case 'housekeeping':
-          if (Hcount >= 8) {
-            return false;
-          } else {
             Hcount = Hcount + 1;
-          }
-          break;
+            break;
 
         case 'waiter':
-          if (Wcount >= 5) {
-            return false;
-          } else {
             Wcount = Wcount + 1;
-          }
-          break;
+            break;
 
         case 'kitchen_staff':
-          if (Kcount >= 8) {
-            return false;
-          } else {
             Kcount = Kcount + 1;
-          }
-          break;
+            break;
 
         case 'supervisor':
-          if (Scount >= 4) {
-            return false;
-          } else {
             Scount = Scount + 1;
-          }
-          break;
+            break;
       }
     });
+    switch (employeeType) {
+      case 'clerk':
+        if (Ccount >= 4) {
+          this.sweetAlert();
+        }
+        break;
+
+      case 'manager':
+        if (Mcount >= 6) {
+          this.sweetAlert();
+        }
+        break;
+
+      case 'porter':
+        if (Pcount >= 3) {
+          this.sweetAlert();
+        }
+        break;
+
+      case 'housekeeping':
+        if (Hcount >= 8) {
+          this.sweetAlert();
+        }
+        break;
+
+      case 'waiter':
+        if (Wcount >= 5) {
+          this.sweetAlert();
+        }
+        break;
+
+      case 'kitchen_staff':
+        if (Kcount >= 8) {
+          this.sweetAlert();
+        }
+        break;
+
+      case 'supervisor':
+        if (Scount >= 4) {
+          this.sweetAlert();
+        }
+        break;
+    }
   }
 
-  addEmployees() {
+  addEmployees(employeeType) {
 
-    this.codeValidation();
+    this.codeValidation(employeeType);
 
     const empPayload = {
         value: this.employee,
@@ -134,7 +149,7 @@ export class PersonnelComponent implements OnInit {
         profile: this.employeeType
       };
 
-      if (!!empPayload.value) {
+    if (!!empPayload.value) {
         if (this.empArray.length === 0) {
           this.personnel = new class implements Employee {
             key: string;
@@ -166,13 +181,13 @@ export class PersonnelComponent implements OnInit {
           this.empService.addEmployee(this.personnel);
         }
       }
-      this.employee = '';
-      this.email = '';
-      this.phone = '';
-      this.address = '';
-      this.gender = '';
-      this.age = '';
-      this.employeeType = '';
+    this.employee = '';
+    this.email = '';
+    this.phone = '';
+    this.address = '';
+    this.gender = '';
+    this.age = '';
+    this.employeeType = '';
   }
 
   sweetAlert() {
@@ -188,6 +203,8 @@ export class PersonnelComponent implements OnInit {
     this.gender = '';
     this.age = '';
     this.employeeType = '';
+
+    return false;
   }
 
   getEmployeesData() {
@@ -205,6 +222,18 @@ export class PersonnelComponent implements OnInit {
       });
       this.isLoading = false;
     });
+  }
+
+  deleteItem(item) {
+    for (let i = 0; i <= this.empArray.length; i++) {
+      if (item == this.empArray[i]) {
+        this.empArray.splice(i, 1);
+
+        this.empService
+          .deleteEmployee(item.key)
+          .catch(err => console.log(err));
+      }
+    }
   }
 
 }

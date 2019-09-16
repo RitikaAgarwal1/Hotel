@@ -49,7 +49,7 @@
       <input matInput placeholder="Email" [(ngModel)]="email" name="email">
     </mat-form-field>
 
-    <button class="addbtn" (click)="addEmployees()" [disabled]="!(age && address && employee && phone && validate.valid && gender && email)">Add</button>
+    <button class="addbtn" (click)="addEmployees(employeeType)" [disabled]="!(age && address && employee && phone && validate.valid && gender && email)">Add</button>
   </form>
 
   <div class="col-12 emp-main-content">
@@ -74,7 +74,7 @@
             <td>{{emp.address | titlecase}}</td>
             <td>{{emp.age}}</td>
             <td>{{emp.email}}</td>
-            <td><button class="delete">X</button></td>
+            <td><button class="delete" (click)="deleteItem(emp)"><i class="material-icons">delete</i></button></td>
           </tr>
           </tbody>
         </table>
@@ -102,7 +102,7 @@
             <td>{{emp.address | titlecase}}</td>
             <td>{{emp.age}}</td>
             <td>{{emp.email}}</td>
-            <td><button class="delete">X</button></td>
+            <td><button class="delete" (click)="deleteItem(emp)"><i class="material-icons">delete</i></button></td>
           </tr>
           </tbody>
         </table>
@@ -130,7 +130,7 @@
             <td>{{emp.address | titlecase}}</td>
             <td>{{emp.age}}</td>
             <td>{{emp.email}}</td>
-            <td><button class="delete">X</button></td>
+            <td><button class="delete" (click)="deleteItem(emp)"><i class="material-icons">delete</i></button></td>
           </tr>
           </tbody>
         </table>
@@ -158,7 +158,7 @@
             <td>{{emp.address | titlecase}}</td>
             <td>{{emp.age}}</td>
             <td>{{emp.email}}</td>
-            <td><button class="delete">X</button></td>
+            <td><button class="delete" (click)="deleteItem(emp)"><i class="material-icons">delete</i></button></td>
           </tr>
           </tbody>
         </table>
@@ -186,7 +186,7 @@
             <td>{{emp.address | titlecase}}</td>
             <td>{{emp.age}}</td>
             <td>{{emp.email}}</td>
-            <td><button class="delete">X</button></td>
+            <td><button class="delete" (click)="deleteItem(emp)"><i class="material-icons">delete</i></button></td>
           </tr>
           </tbody>
         </table>
@@ -214,7 +214,7 @@
             <td>{{emp.address | titlecase}}</td>
             <td>{{emp.age}}</td>
             <td>{{emp.email}}</td>
-            <td><button class="delete">X</button></td>
+            <td><button class="delete" (click)="deleteItem(emp)"><i class="material-icons">delete</i></button></td>
           </tr>
           </tbody>
         </table>
@@ -242,7 +242,7 @@
             <td>{{emp.address | titlecase}}</td>
             <td>{{emp.age}}</td>
             <td>{{emp.email}}</td>
-            <td><button class="delete">X</button></td>
+            <td><button class="delete" (click)="deleteItem(emp)"><i class="material-icons">delete</i></button></td>
           </tr>
           </tbody>
         </table>
