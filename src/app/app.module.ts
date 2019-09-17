@@ -22,6 +22,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
 import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { AccommodationComponent } from './accommodation/accommodation.component';
 import { ActivitiesComponent } from './activities/activities.component';
@@ -58,6 +59,7 @@ declare var $: any;
     HttpClientModule,
     MatCardModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     AngularFireDatabaseModule,
     DragDropModule,
     MatDialogModule,

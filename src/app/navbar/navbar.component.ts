@@ -27,11 +27,11 @@ export class NavbarComponent implements OnInit {
     },
     {
       displayName: 'Guests',
-      iconName: 'perm_identity'
+      iconName: 'person'
     },
     {
-      displayName: 'Log Out',
-      iconName: 'lock'
+      displayName: 'Personnel Details',
+      iconName: 'import_contacts'
     }
   ];
 
@@ -44,13 +44,18 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout() {
+    localStorage.removeItem('loginResponse');
+    if (!this.auth.isLoggedIn()) {
+      this.router.navigate(['login']);
+    }
+  }
+
   clickHandlerAction(menu) {
     switch (menu.displayName) {
-      case 'Log Out':
-        localStorage.removeItem('loginResponse');
-        if (!this.auth.isLoggedIn()) {
-          this.router.navigate(['login']);
-        }
+
+      case 'Personnel Details':
+        this.router.navigate(['personnel']);
         break;
 
       case 'Accommodation':
