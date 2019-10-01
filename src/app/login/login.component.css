@@ -79,6 +79,14 @@ button.btn-form:after{
   border-bottom: 10px solid #63211a;
 }
 
+.googlebtn{
+  background: darkred;
+  color:#fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
 .switch-btn:after{
   right: -52px!important;
 }

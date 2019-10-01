@@ -11,7 +11,7 @@ import {PersonnelComponent} from './personnel/personnel.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomepageComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomepageComponent},
   { path: 'accommodation', component: AccommodationComponent },
   { path: 'activities', component: ActivitiesComponent },
   { path: 'guest', component: GuestComponent },

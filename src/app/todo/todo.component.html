@@ -13,7 +13,7 @@
   <mat-card>
   <form #todoForm= "ngForm" (ngSubmit)="todoSubmit(todoForm.value)">
     <div class="form-group">
-      <h1 class="text-center text-primary">Welcome {{displayName}}</h1>
+      <h1 class="text-center text-primary">Welcome {{user?.displayName}}</h1>
       <h3 class="text-center text-primary">Your Checklist</h3>
       <div class="input-group-prepend">
         <input type="text" class="form-control" placeholder="Add Todo" name="todoItem" [(ngModel)]="todoItem">
@@ -24,11 +24,11 @@
 
     <div class="data">
       <ul cdkDropList class="list-instyled" (cdkDropListDropped)="drop($event)">
-        <li *ngFor="let item of todoArray; index as i" class = "taskList" [ngClass]="item.isDone? 'completed-task': 'not-completed-task'" cdkDrag>
+        <li *ngFor="let item of todoArray;" class = "taskList" [ngClass]="item.isDone? 'completed-task': 'not-completed-task'" cdkDrag>
           {{item.title | titlecase}}
           <button class="btn-complete" (click)="taskComplete(true, item.title)" *ngIf="!item.isDone">Completed</button>
           <button class="btn-complete not-complete-btn" (click)="taskComplete(false, item.title)" *ngIf="item.isDone">Not Completed</button>
-          <i (click)="deleteItem(item)" class="material-icons">delete</i>
+          <i (click)="deleteItem(item.id)" class="material-icons">delete</i>
         </li>
       </ul>
     </div>

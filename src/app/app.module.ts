@@ -31,6 +31,8 @@ import { GuestComponent } from './guest/guest.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { RoomBookingFormComponent } from './accommodation/room-booking-form/room-booking-form.component';
 import { PersonnelComponent } from './personnel/personnel.component';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 declare var $: any;
 
@@ -47,7 +49,8 @@ declare var $: any;
     RestaurantComponent,
     GuestComponent,
     RoomBookingFormComponent,
-    PersonnelComponent
+    PersonnelComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ declare var $: any;
     MatCardModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     AngularFireDatabaseModule,
     DragDropModule,
     MatDialogModule,

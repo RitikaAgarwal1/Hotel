@@ -26,10 +26,11 @@
           <span class="input-group-text"><mat-icon (click)="showPassword()" style="cursor: pointer">{{icon}}</mat-icon></span>
         </mat-form-field>
 
-        <p class="error" *ngIf="errormsg">{{error}}</p>
+        <p class="error" *ngIf="authError">{{authError?.message}}</p>
 
         <button type="submit" class="btn-form action-btn" [disabled]="!authForm.valid">{{ isLoginMode ? 'Sign In' : 'Sign Up'}}</button>
         <button type="button" class="btn-form switch-btn" (click)="onSwitchMode()">{{ isLoginMode ? 'Click to Sign Up' : 'Click to Sign In'}}</button>
+        <!--<button class="googlebtn" type="submit" (click)="gSignIn()" *ngIf="isLoginMode">Sign in using Google</button>-->
       </form>
     </div>
 

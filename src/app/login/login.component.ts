@@ -13,6 +13,8 @@ declare var $: any;
 })
 export class LoginComponent implements OnInit {
 
+  authError: any;
+
   isLoginMode = true;
   icon = 'visibility_off';
 
@@ -25,6 +27,7 @@ export class LoginComponent implements OnInit {
   private nativeElement: Node;
 
   show: boolean = false;
+  user: firebase.User;
 
   constructor( private authService: AuthService,
                private router: Router,
@@ -39,6 +42,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.eventAuthError$.subscribe( data => {
+      this.authError = data;
+    });
+
+    this.authService.getUserState().subscribe(user => {
+      this.user = user;
+    });
   }
 
   onSwitchMode() {
@@ -56,10 +66,11 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
 
     if (this.isLoginMode) {
-      this.authService.login(email, password).subscribe(res => {
+      this.authService.login(form.value.email, form.value.password);
+      /*this.authService.login(form.value.email, form.value.password).subscribe(res => {
           this.router.navigate(['home']);
-          console.log(res);
           localStorage.setItem('loginResponse', JSON.stringify(res));
+          localStorage.setItem('user', JSON.stringify(this.user));
           this.isLoading = false;
       },
         error => {
@@ -81,14 +92,16 @@ export class LoginComponent implements OnInit {
 
             default:
               this.error = 'Something went wrong! Please try again';
-          }
-          this.isLoading = false;
-          });
+          }*/
+      this.isLoading = false;
+          //});
     } else {
-      this.authService.signup(displayName, email, password).subscribe(res => {
-          this.isLoading = false;
-        },
-        error => {
+      this.authService.signup(form.value);
+      //this.authService.signup(displayName, email, password).subscribe(res => {
+      this.isLoading = false;
+      this.isLoginMode = true;
+        //},
+        /*error => {
           this.error = error.error.error.message;
           this.errormsg = true;
 
@@ -111,7 +124,7 @@ export class LoginComponent implements OnInit {
 
           this.isLoading = false;
 
-        });
+        });*/
     }
     form.reset();
   }

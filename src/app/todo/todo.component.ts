@@ -3,7 +3,11 @@ import {animate, keyframes, style, transition, trigger} from '@angular/animation
 import {TodoService} from '../service/todo/todo.service';
 import {Todo} from '../interfaces/todo';
 import { map } from 'rxjs/operators';
+import 'rxjs/Rx';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {AuthService} from '../service/auth/auth.service';
+import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-todo',
@@ -19,18 +23,37 @@ export class TodoComponent implements OnInit {
 
   todo: Todo;
   todoList: any[];
-  displayName: string;
 
   todoArray = [];
-  todoItem: string = '';
+  todoItem = '';
 
   isLoading = true;
 
-  constructor( private todoService: TodoService) { }
+  user: firebase.User;
+  todos: any;
+
+  todoDoc: AngularFirestoreDocument<Todo>;
+
+
+  constructor( private todoService: TodoService,
+               private authService: AuthService,
+               private afs: AngularFirestore) { }
 
   ngOnInit() {
+    /*this.todos = this.todoService.todosCol.snapshotChanges()
+      .map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Todo;
+          const id = a.payload.doc.id;
+          return {data, id};
+        });
+      });*/
+
     this.getTodoData();
-    this.getName();
+    /*this.authService.getUserState().subscribe(user => {
+      this.user = user;
+      this.isLoading = false;
+    });*/
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -82,6 +105,34 @@ export class TodoComponent implements OnInit {
     this.todoItem = '';
   }
 
+  /*addTodo(value) {
+    value = this.todoItem;
+    if (!!value) {
+      if (this.todoArray.length === 0) {
+        this.todo = new class implements Todo {
+          isDone = false;
+          key: string;
+          title: string = value;
+        }();
+        this.todoService.sendTodo(this.todo, this.user.uid);
+      } else {
+
+        for (let i = 0; i < this.todoArray.length; i++) {
+          if (value === this.todoArray[i]) {
+            return false;
+          }
+        }
+        this.todo = new class implements Todo {
+          isDone = false;
+          key: string;
+          title: string = value;
+        }();
+        this.todoService.sendTodo(this.todo, this.user.uid);
+      }
+    }
+    this.todoItem = '';
+  }*/
+
   todoSubmit(value) {
     if (value !== '') {
       this.addTodo(value);
@@ -110,11 +161,6 @@ export class TodoComponent implements OnInit {
         }
       });
     }
-  }
-
-  getName() {
-    const loginResponse = JSON.parse(localStorage.getItem('loginResponse'));
-    this.displayName = loginResponse.displayName;
   }
 
 }

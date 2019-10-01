@@ -2,6 +2,8 @@ import {Component, OnInit, Renderer} from '@angular/core';
 import {MenuItem} from '../interfaces/menu';
 import {AuthGuard} from '../service/auth/auth-guard.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {User} from 'firebase';
 
 declare var $: any;
 
@@ -39,14 +41,16 @@ export class NavbarComponent implements OnInit {
 
   constructor( private auth: AuthGuard,
                private router: Router,
-               private render: Renderer) { }
+               private render: Renderer,
+               private afAuth: AngularFireAuth) { }
 
   ngOnInit() {
   }
 
   logout() {
-    localStorage.removeItem('loginResponse');
+    localStorage.removeItem('user');
     if (!this.auth.isLoggedIn()) {
+      this.afAuth.auth.signOut();
       this.router.navigate(['login']);
     }
   }
